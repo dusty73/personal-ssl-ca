@@ -9,7 +9,7 @@ openssl genrsa -des3 -out CA/myCA.key 2048
 openssl req -x509 -new -nodes -key CA/myCA.key -sha256 -days 1825 -out CA/myCA.pem
 ```
 Note: memorize or save the password for the CA.
-Once created, install the CA in the system chain:
+On MacOS, add the CA to the system chain so any application will recognize it.
 
 ``` bash
 sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" CA/myCA.pem
